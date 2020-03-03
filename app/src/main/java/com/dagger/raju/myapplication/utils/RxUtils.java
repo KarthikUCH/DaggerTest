@@ -12,4 +12,8 @@ public class RxUtils {
     public RxUtils(Context context) {
         this.context = context;
     }
+
+    public String getData(){
+        return "RxUtils";
+    }
 }
