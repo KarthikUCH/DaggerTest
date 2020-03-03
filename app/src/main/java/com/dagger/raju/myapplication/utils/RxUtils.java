@@ -16,4 +16,8 @@ public class RxUtils {
     public void performRxOperation() {
         System.out.println("Performing Rx Operation");
     }
+
+    public String getData() {
+        return "RxUtils";
+    }
 }
