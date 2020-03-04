@@ -1,13 +1,12 @@
 package com.dagger.raju.myapplication.di.chat;
 
 import com.dagger.raju.myapplication.ChatActivity;
-import com.dagger.raju.myapplication.di.AppComponent;
 import com.dagger.raju.myapplication.di.scope.ChatScope;
 
-import dagger.Component;
+import dagger.Subcomponent;
 
 
-@Component(dependencies = AppComponent.class, modules = {ChatModule.class})
+@Subcomponent(modules = {ChatModule.class})
 @ChatScope
 public interface ChatComponent {
 

@@ -3,6 +3,8 @@ package com.dagger.raju.myapplication.di;
 import android.content.Context;
 
 import com.dagger.raju.myapplication.MainActivity;
+import com.dagger.raju.myapplication.di.chat.ChatComponent;
+import com.dagger.raju.myapplication.di.chat.ChatModule;
 import com.dagger.raju.myapplication.repository.IDataRepository;
 import com.dagger.raju.myapplication.utils.RxUtils;
 
@@ -17,9 +19,7 @@ import dagger.Component;
 @Singleton
 public interface AppComponent {
 
-    Context getContext();
-    RxUtils getRxUtils();
-    IDataRepository getIDataRepository();
+    ChatComponent plusChatComponent(ChatModule chatModule);
 
     void inject(MainActivity mainActivity);
 }

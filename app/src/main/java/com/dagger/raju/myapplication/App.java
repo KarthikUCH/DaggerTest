@@ -9,7 +9,6 @@ import com.dagger.raju.myapplication.di.ReceiversModule;
 import com.dagger.raju.myapplication.di.UtilsModule;
 import com.dagger.raju.myapplication.di.chat.ChatComponent;
 import com.dagger.raju.myapplication.di.chat.ChatModule;
-import com.dagger.raju.myapplication.di.chat.DaggerChatComponent;
 
 /**
  * Created by raju on 7/4/19.
@@ -37,10 +36,10 @@ public class App extends Application {
     }
 
     private ChatComponent buildChatComponent() {
-        return DaggerChatComponent.builder()
-                .appComponent(appComponent)
-                .chatModule(new ChatModule()) // Not Mandatory to include, as it will be automatically handled
-                .build();
+        if(chatComponent ==null){
+            chatComponent = appComponent.plusChatComponent(new ChatModule());
+        }
+        return chatComponent;
     }
 
     public static AppComponent getAppComponent() {
