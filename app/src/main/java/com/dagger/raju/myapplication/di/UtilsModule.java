@@ -1,7 +1,7 @@
 package com.dagger.raju.myapplication.di;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.dagger.raju.myapplication.network.NetworkChannel;
 import com.dagger.raju.myapplication.utils.NetworkUtil;
