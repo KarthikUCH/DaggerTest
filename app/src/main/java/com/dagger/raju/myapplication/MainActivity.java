@@ -1,5 +1,6 @@
 package com.dagger.raju.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -12,6 +13,7 @@ import android.view.View;
 import com.dagger.raju.myapplication.network.NetworkChannel;
 import com.dagger.raju.myapplication.utils.NetworkUtil;
 
+import com.raju.karthikeyan.payment.PaymentActivity;
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_payment) {
+            startActivity(new Intent(this, PaymentActivity.class));
             return true;
         }
 
