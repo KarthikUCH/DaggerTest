@@ -2,23 +2,23 @@ package com.dagger.raju.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import com.dagger.raju.myapplication.network.NetworkChannel;
 import com.dagger.raju.myapplication.utils.NetworkUtil;
 import com.dagger.raju.myapplication.utils.RxUtils;
-
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.raju.karthikeyan.payment.PaymentActivity;
+import com.raju.karthikeyan.payment.PaymentRepository;
+import com.raju.karthikeyan.payment.PaymentUseCase;
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
-
 
     @Inject
     NetworkUtil networkUtil;
@@ -29,6 +29,14 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     RxUtils rxUtils;
 
+    @Inject
+    PaymentUseCase paymentUseCase;
+
+    @Inject
+    PaymentRepository paymentRepository;
+
+    TextView tvMain;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +46,19 @@ public class MainActivity extends AppCompatActivity {
 
         App.getAppComponent().inject(this);
         rxUtils.performRxOperation();
+
+        tvMain = findViewById(R.id.tvMain);
+
+        tvMain.setText(networkUtil.getData());
+        tvMain.append("\n");
+        tvMain.append("\n");
+        tvMain.append(networkChannel.getData());
+        tvMain.append("\n");
+        tvMain.append("\n");
+        tvMain.append(paymentUseCase.getData());
+        tvMain.append("\n");
+        tvMain.append("\n");
+        tvMain.append(paymentRepository.getData());
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

@@ -16,4 +16,8 @@ public class NetworkUtil {
         this.context = context;
         this.networkChannel = networkChannel;
     }
+
+    public String getData(){
+        return "NetworkUtil";
+    }
 }

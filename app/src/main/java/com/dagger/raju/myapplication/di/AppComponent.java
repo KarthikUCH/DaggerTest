@@ -2,15 +2,16 @@ package com.dagger.raju.myapplication.di;
 
 import com.dagger.raju.myapplication.MainActivity;
 
-import javax.inject.Singleton;
+import com.raju.karthikeyan.payment.di.PaymentComponent;
+import com.dagger.raju.myapplication.di.scope.AppScope;
 
 import dagger.Component;
 
 /**
  * Created by raju on 7/4/19.
  */
-@Component(modules = {AppModule.class, ReceiversModule.class, UtilsModule.class})
-@Singleton
+@Component(dependencies = PaymentComponent.class, modules = {AppModule.class, ReceiversModule.class, UtilsModule.class})
+@AppScope
 public interface AppComponent {
     void inject(MainActivity mainActivity);
 }

@@ -6,8 +6,7 @@ import androidx.annotation.NonNull;
 import com.dagger.raju.myapplication.network.NetworkChannel;
 import com.dagger.raju.myapplication.utils.NetworkUtil;
 import com.dagger.raju.myapplication.utils.RxUtils;
-
-import javax.inject.Singleton;
+import com.dagger.raju.myapplication.di.scope.AppScope;
 
 import dagger.Module;
 import dagger.Provides;
@@ -21,14 +20,14 @@ public class UtilsModule {
 
     @Provides
     @NonNull
-    @Singleton
+    @AppScope
     NetworkUtil providesNetworkUtil(Context context, NetworkChannel networkChannel) {
         return new NetworkUtil(context, networkChannel);
     }
 
     @Provides
     @NonNull
-    @Singleton
+    @AppScope
     RxUtils providesRxUtils(Context context) {
         return new RxUtils(context);
     }
