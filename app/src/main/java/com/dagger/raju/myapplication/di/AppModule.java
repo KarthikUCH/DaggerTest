@@ -3,8 +3,7 @@ package com.dagger.raju.myapplication.di;
 import android.content.Context;
 import androidx.annotation.NonNull;
 
-import javax.inject.Singleton;
-
+import com.dagger.raju.myapplication.di.scope.AppScope;
 import dagger.Module;
 import dagger.Provides;
 
@@ -22,7 +21,7 @@ public class AppModule {
 
     @Provides
     @NonNull
-    @Singleton
+    @AppScope
     Context providesContext() {
         return appContext;
     }

@@ -2,21 +2,21 @@ package com.raju.karthikeyan.payment.di;
 
 import com.raju.karthikeyan.payment.PaymentRepository;
 import com.raju.karthikeyan.payment.PaymentUseCase;
-import com.raju.karthikeyan.payment.di.scope.PaymentScope;
 import dagger.Module;
 import dagger.Provides;
+import javax.inject.Singleton;
 
 @Module
 public class PaymentModule {
 
     @Provides
-    @PaymentScope
+    @Singleton
     PaymentRepository providePaymentRepository(){
         return new PaymentRepository();
     }
 
     @Provides
-    @PaymentScope
+    @Singleton
     PaymentUseCase providePaymentUseCase(){
         return new PaymentUseCase();
     }

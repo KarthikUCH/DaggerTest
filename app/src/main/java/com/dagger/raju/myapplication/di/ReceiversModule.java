@@ -3,8 +3,7 @@ package com.dagger.raju.myapplication.di;
 import androidx.annotation.NonNull;
 
 import com.dagger.raju.myapplication.network.NetworkChannel;
-
-import javax.inject.Singleton;
+import com.dagger.raju.myapplication.di.scope.AppScope;
 
 import dagger.Module;
 import dagger.Provides;
@@ -18,7 +17,7 @@ public class ReceiversModule {
 
     @Provides
     @NonNull
-    @Singleton
+    @AppScope
     NetworkChannel providesNetworkChannel(){
         return new NetworkChannel();
     }

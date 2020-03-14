@@ -30,6 +30,7 @@ public class App extends Application implements PaymentComponentProvider {
                 .appModule(new AppModule(this))
                 .receiversModule(new ReceiversModule())
                 .utilsModule(new UtilsModule())
+                .paymentComponent(providePaymentComponent())
                 .build();
     }
 
