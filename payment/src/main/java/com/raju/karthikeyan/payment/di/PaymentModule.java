@@ -1,5 +1,6 @@
 package com.raju.karthikeyan.payment.di;
 
+import com.raju.karthikeyan.payment.ICheckoutManager;
 import com.raju.karthikeyan.payment.PaymentRepository;
 import com.raju.karthikeyan.payment.PaymentUseCase;
 import dagger.Module;
@@ -8,6 +9,12 @@ import javax.inject.Singleton;
 
 @Module
 public class PaymentModule {
+
+    private ICheckoutManager checkoutManager;
+
+    public PaymentModule(ICheckoutManager checkoutManager) {
+        this.checkoutManager = checkoutManager;
+    }
 
     @Provides
     @Singleton
@@ -19,5 +26,11 @@ public class PaymentModule {
     @Singleton
     PaymentUseCase providePaymentUseCase(){
         return new PaymentUseCase();
+    }
+
+    @Provides
+    @Singleton
+    PaymentManager providePaymentManager(){
+        return new PaymentManager(checkoutManager);
     }
 }
