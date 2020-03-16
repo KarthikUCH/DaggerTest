@@ -2,7 +2,7 @@ package com.raju.karthikeyan.payment
 
 interface ICheckoutManager {
 
-    fun initCheckout(onSuccess: (ShopppingCartCheckout) -> Boolean)
+    fun initCheckout(onSuccess: Boolean)
 
     fun setUniqueIdAndGuid(shoppingCartCheckout: ShopppingCartCheckout)
 
