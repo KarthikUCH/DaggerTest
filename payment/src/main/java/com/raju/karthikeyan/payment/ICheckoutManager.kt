@@ -1,5 +1,8 @@
 package com.raju.karthikeyan.payment
 
+import com.raju.karthikeyan.common.ShoppingCart
+import com.raju.karthikeyan.common.ShopppingCartCheckout
+
 interface ICheckoutManager {
 
     fun initCheckout(onSuccess: Boolean)

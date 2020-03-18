@@ -1,9 +1,9 @@
 package com.dagger.raju.myapplication;
 
 import android.util.Log;
+import com.raju.karthikeyan.common.ShoppingCart;
+import com.raju.karthikeyan.common.ShopppingCartCheckout;
 import com.raju.karthikeyan.payment.ICheckoutManager;
-import com.raju.karthikeyan.payment.ShoppingCart;
-import com.raju.karthikeyan.payment.ShopppingCartCheckout;
 
 public class CheckoutManager implements ICheckoutManager {
 
