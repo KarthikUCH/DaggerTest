@@ -3,7 +3,6 @@ package com.raju.karthikeyan.payment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.raju.karthikeyan.payment.di.PaymentComponentProvider
-import com.raju.karthikeyan.payment.di.PaymentManager
 import kotlinx.android.synthetic.main.activity_payment.*
 import javax.inject.Inject
 

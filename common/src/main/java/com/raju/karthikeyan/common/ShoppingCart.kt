@@ -1,4 +1,4 @@
-package com.raju.karthikeyan.payment
+package com.raju.karthikeyan.common
 
 class ShoppingCart {
 

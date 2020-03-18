@@ -1,9 +1,6 @@
-package com.raju.karthikeyan.payment.di
-
-import com.raju.karthikeyan.payment.ICheckoutManager
+package com.raju.karthikeyan.payment
 
 class PaymentManager(private val checkoutManager: ICheckoutManager) {
-
 
     fun initCheckout() {
         checkoutManager.initCheckout(true)
