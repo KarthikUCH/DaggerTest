@@ -5,6 +5,7 @@ import dagger.Component;
 import javax.inject.Singleton;
 
 @Component(modules = {CheckoutModule.class})
+@Singleton
 public interface CheckoutComponent {
     CheckoutManager getCheckoutManager();
 }

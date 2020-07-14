@@ -10,6 +10,7 @@ import javax.inject.Singleton;
 public class CheckoutModule {
 
     @Provides
+    @Singleton
     @NonNull
     CheckoutManager providesCheckoutManager() {
         return new CheckoutManager();
