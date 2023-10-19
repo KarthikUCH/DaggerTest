@@ -11,6 +11,7 @@ import android.view.View;
 
 import com.dagger.raju.myapplication.network.NetworkChannel;
 import com.dagger.raju.myapplication.utils.NetworkUtil;
+import com.dagger.raju.myapplication.utils.RxUtils;
 
 import javax.inject.Inject;
 
@@ -23,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     NetworkChannel networkChannel;
 
+    @Inject
+    RxUtils rxUtils;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         App.getAppComponent().inject(this);
+        rxUtils.performRxOperation();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
