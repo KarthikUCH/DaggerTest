@@ -42,6 +42,11 @@ public class App extends Application {
         return chatComponent;
     }
 
+    public void clearChatComponent() {
+        // end lifecycle of chatComponent
+        chatComponent = null;
+    }
+
     public static AppComponent getAppComponent() {
         return appComponent;
     }
