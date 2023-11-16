@@ -2,8 +2,8 @@ package com.raju.karthikeyan.payment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.raju.karthikeyan.payment.databinding.ActivityPaymentBinding
 import com.raju.karthikeyan.payment.di.PaymentComponentProvider
-import kotlinx.android.synthetic.main.activity_payment.*
 import javax.inject.Inject
 
 class PaymentActivity : AppCompatActivity() {
@@ -17,15 +17,18 @@ class PaymentActivity : AppCompatActivity() {
     @Inject
     lateinit var paymentManager: PaymentManager
 
+    private lateinit var binding: ActivityPaymentBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_payment)
+        binding = ActivityPaymentBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val paymentComponent = (applicationContext as PaymentComponentProvider).providePaymentComponent()
         paymentComponent.inject(this)
 
-        tvPayment.text = paymentUseCase.getData()
-        tvPayment.apply {
+        binding.tvPayment.text = paymentUseCase.getData()
+        binding.tvPayment.apply {
             text = paymentUseCase.getData()
             append("\n")
             append("\n")
