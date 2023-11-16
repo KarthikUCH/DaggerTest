@@ -6,10 +6,6 @@ import com.dagger.raju.myapplication.di.AppModule;
 import com.dagger.raju.myapplication.di.DaggerAppComponent;
 import com.dagger.raju.myapplication.di.ReceiversModule;
 import com.dagger.raju.myapplication.di.UtilsModule;
-import com.dagger.raju.myapplication.di.checkout.CheckoutComponent;
-import com.dagger.raju.myapplication.di.checkout.CheckoutModule;
-import com.dagger.raju.myapplication.di.checkout.DaggerCheckoutComponent;
-import com.raju.karthikeyan.payment.di.DaggerPaymentComponent;
 import com.raju.karthikeyan.payment.di.PaymentComponent;
 import com.raju.karthikeyan.payment.di.PaymentComponentProvider;
 import com.raju.karthikeyan.payment.di.PaymentModule;
@@ -20,21 +16,13 @@ import com.raju.karthikeyan.payment.di.PaymentModule;
 public class App extends Application implements PaymentComponentProvider {
 
     private static AppComponent appComponent;
-    private static CheckoutComponent checkoutComponent;
     private static PaymentComponent paymentComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        checkoutComponent = buildCheckoutComponent();
-        paymentComponent = providePaymentComponent();
         appComponent = buildComponent();
-    }
-
-    private CheckoutComponent buildCheckoutComponent() {
-        return DaggerCheckoutComponent.builder()
-                .checkoutModule(new CheckoutModule())
-                .build();
+        paymentComponent = providePaymentComponent();
     }
 
     private AppComponent buildComponent() {
@@ -42,8 +30,6 @@ public class App extends Application implements PaymentComponentProvider {
                 .appModule(new AppModule(this))
                 .receiversModule(new ReceiversModule())
                 .utilsModule(new UtilsModule())
-                .checkoutComponent(checkoutComponent)
-                .paymentComponent(paymentComponent)
                 .build();
     }
 
@@ -54,9 +40,7 @@ public class App extends Application implements PaymentComponentProvider {
     @Override public PaymentComponent providePaymentComponent() {
 
         if (paymentComponent == null) {
-            paymentComponent = DaggerPaymentComponent.builder()
-                    .paymentModule(new PaymentModule(checkoutComponent.getCheckoutManager()))
-                    .build();
+            paymentComponent = appComponent.plusPaymentComponent(new PaymentModule());
         }
         return paymentComponent;
     }

@@ -29,11 +29,11 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     RxUtils rxUtils;
 
-    @Inject
+    /*@Inject
     PaymentUseCase paymentUseCase;
 
     @Inject
-    PaymentRepository paymentRepository;
+    PaymentRepository paymentRepository;*/
 
     TextView tvMain;
 
@@ -55,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
         tvMain.append(networkChannel.getData());
         tvMain.append("\n");
         tvMain.append("\n");
-        tvMain.append(paymentUseCase.getData());
+        /*tvMain.append(paymentUseCase.getData());
         tvMain.append("\n");
         tvMain.append("\n");
-        tvMain.append(paymentRepository.getData());
+        tvMain.append(paymentRepository.getData());*/
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

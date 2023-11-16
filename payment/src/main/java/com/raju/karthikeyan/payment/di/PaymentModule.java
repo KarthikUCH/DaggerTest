@@ -11,12 +11,6 @@ import javax.inject.Singleton;
 @Module
 public class PaymentModule {
 
-    private ICheckoutManager checkoutManager;
-
-    public PaymentModule(ICheckoutManager checkoutManager) {
-        this.checkoutManager = checkoutManager;
-    }
-
     @Provides
     @Singleton
     PaymentRepository providePaymentRepository(){
@@ -31,7 +25,7 @@ public class PaymentModule {
 
     @Provides
     @Singleton
-    PaymentManager providePaymentManager(){
+    PaymentManager providePaymentManager(ICheckoutManager checkoutManager){
         return new PaymentManager(checkoutManager);
     }
 }

@@ -4,9 +4,11 @@ import com.raju.karthikeyan.payment.PaymentActivity;
 import com.raju.karthikeyan.payment.PaymentRepository;
 import com.raju.karthikeyan.payment.PaymentUseCase;
 import dagger.Component;
+import dagger.Subcomponent;
+
 import javax.inject.Singleton;
 
-@Component(modules = {PaymentModule.class})
+@Subcomponent(modules = {PaymentModule.class})
 @Singleton
 public interface PaymentComponent {
 
