@@ -25,8 +25,11 @@ class PaymentActivity : AppCompatActivity() {
         binding = ActivityPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val paymentComponent = (applicationContext as PaymentComponentProvider).providePaymentComponent()
-        paymentComponent.inject(this)
+
+        // Initialize paymentUiComponent
+        val paymentUiComponent = (applicationContext as PaymentComponentProvider).providePaymentUiComponent()
+        paymentUiComponent.inject(this)
+
 
         binding.tvPayment.text = paymentUseCase.getData()
         binding.tvPayment.apply {
@@ -39,5 +42,11 @@ class PaymentActivity : AppCompatActivity() {
         Toast.makeText(this, "Check log message for Checkout Manager status", Toast.LENGTH_LONG).show()
         paymentManager.initCheckout()
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Clear PaymentUiComponent instances
+        (applicationContext as PaymentComponentProvider).clearPaymentUiComponent()
     }
 }

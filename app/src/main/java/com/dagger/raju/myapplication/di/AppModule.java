@@ -3,7 +3,7 @@ package com.dagger.raju.myapplication.di;
 import android.content.Context;
 import androidx.annotation.NonNull;
 
-import com.dagger.raju.myapplication.di.scope.AppScope;
+import com.raju.karthikeyan.payment.di.scope.AppScope;
 import dagger.Module;
 import dagger.Provides;
 

@@ -1,22 +1,21 @@
 package com.dagger.raju.myapplication.di;
 
 import com.dagger.raju.myapplication.MainActivity;
-
 import com.dagger.raju.myapplication.di.checkout.CheckoutModule;
-import com.raju.karthikeyan.payment.di.PaymentComponent;
-import com.dagger.raju.myapplication.di.scope.AppScope;
-import com.raju.karthikeyan.payment.di.PaymentModule;
+import com.raju.karthikeyan.payment.di.PaymentUiComponent;
+import com.raju.karthikeyan.payment.di.PaymentUiModule;
+import com.raju.karthikeyan.payment.di.scope.AppScope;
 
-import dagger.Component;
+import dagger.Subcomponent;
 
 /**
  * Created by raju on 7/4/19.
  */
-@Component(modules = {AppModule.class, ReceiversModule.class, UtilsModule.class, CheckoutModule.class})
+@Subcomponent(modules = {AppModule.class, ReceiversModule.class, UtilsModule.class, CheckoutModule.class})
 @AppScope
 public interface AppComponent {
 
-    PaymentComponent plusPaymentComponent(PaymentModule paymentModule);
+    PaymentUiComponent plusPaymentUiComponent(PaymentUiModule paymentUiModule);
 
     void inject(MainActivity mainActivity);
 }

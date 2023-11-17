@@ -1,4 +1,4 @@
-package com.dagger.raju.myapplication.di.scope;
+package com.raju.karthikeyan.payment.di.scope;
 
 import java.lang.annotation.Retention;
 import javax.inject.Scope;

@@ -4,6 +4,8 @@ import com.raju.karthikeyan.payment.ICheckoutManager;
 import com.raju.karthikeyan.payment.PaymentManager;
 import com.raju.karthikeyan.payment.PaymentRepository;
 import com.raju.karthikeyan.payment.PaymentUseCase;
+import com.raju.karthikeyan.payment.di.scope.PaymentDataScope;
+
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -12,20 +14,14 @@ import javax.inject.Singleton;
 public class PaymentModule {
 
     @Provides
-    @Singleton
+    @PaymentDataScope
     PaymentRepository providePaymentRepository(){
         return new PaymentRepository();
     }
 
     @Provides
-    @Singleton
+    @PaymentDataScope
     PaymentUseCase providePaymentUseCase(){
         return new PaymentUseCase();
-    }
-
-    @Provides
-    @Singleton
-    PaymentManager providePaymentManager(ICheckoutManager checkoutManager){
-        return new PaymentManager(checkoutManager);
     }
 }
