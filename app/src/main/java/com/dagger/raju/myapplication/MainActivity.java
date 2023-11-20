@@ -9,23 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.dagger.raju.myapplication.network.NetworkChannel;
-import com.dagger.raju.myapplication.utils.NetworkUtil;
-import com.dagger.raju.myapplication.utils.RxUtils;
-
-import javax.inject.Inject;
-
 public class MainActivity extends AppCompatActivity {
 
-
-    @Inject
-    NetworkUtil networkUtil;
-
-    @Inject
-    NetworkChannel networkChannel;
-
-    @Inject
-    RxUtils rxUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +18,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        App.getAppComponent().inject(this);
-        rxUtils.performRxOperation();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
