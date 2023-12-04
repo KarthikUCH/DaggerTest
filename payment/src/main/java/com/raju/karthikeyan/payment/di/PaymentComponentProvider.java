@@ -2,7 +2,7 @@ package com.raju.karthikeyan.payment.di;
 
 public interface PaymentComponentProvider {
 
-    PaymentComponent providePaymentComponent();
+    /*PaymentComponent providePaymentComponent();
 
-    void clearPaymentComponent();
+    void clearPaymentComponent();*/
 }

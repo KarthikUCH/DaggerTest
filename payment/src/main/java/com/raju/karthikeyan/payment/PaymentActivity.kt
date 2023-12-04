@@ -1,22 +1,18 @@
 package com.raju.karthikeyan.payment
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.raju.karthikeyan.payment.databinding.ActivityPaymentBinding
-import com.raju.karthikeyan.payment.di.PaymentComponentProvider
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
 
 class PaymentActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var paymentUseCase: PaymentUseCase
+    val paymentUseCase: PaymentUseCase by inject()
 
-    @Inject
-    lateinit var paymentRepository: PaymentRepository
+    val paymentRepository: PaymentRepository by inject()
 
-    @Inject
-    lateinit var paymentManager: PaymentManager
+    val paymentManager: PaymentManager by inject()
 
     private lateinit var binding: ActivityPaymentBinding
 
@@ -24,9 +20,6 @@ class PaymentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val paymentComponent = (applicationContext as PaymentComponentProvider).providePaymentComponent()
-        paymentComponent.inject(this)
 
         binding.tvPayment.text = paymentUseCase.getData()
         binding.tvPayment.apply {
