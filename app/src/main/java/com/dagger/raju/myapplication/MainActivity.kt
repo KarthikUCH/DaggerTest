@@ -20,17 +20,17 @@ import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 
-    val networkUtil: NetworkUtil by inject()
+    private val networkUtil: NetworkUtil by inject()
 
-    val networkChannel: NetworkChannel by inject()
+    private val networkChannel: NetworkChannel by inject()
 
-    val rxUtils: RxUtils by inject()
+    private val rxUtils: RxUtils by inject()
 
-    val paymentUseCase: PaymentUseCase by inject()
+    private val paymentUseCase: PaymentUseCase by inject()
 
-    val paymentRepository: PaymentRepository by inject()
+    private val paymentRepository: PaymentRepository by inject()
 
-    var tvMain: TextView? = null
+    private var tvMain: TextView? = null
     protected override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
